@@ -2,7 +2,7 @@ extends Node2D
 
 var AppID="488860"
 var ItemID
-var version="0.0.4 dev"
+var version="0.0.5"
 var steam_running=false
 var current_item_id=0
 
@@ -169,20 +169,19 @@ func _on_item_created(result: int, file_id: int, accept_tos: bool):
 	var handler_id=Steam.startItemUpdate(488860, file_id)
 	print(file_id)
 	var mod_id=current_item_id
-	#var mod_path="C:/Users/Administrator/Documents/mpn-gui-workshop-uploader/icon.svg"
 	var metadata:ConfigFile=ConfigFile.new()
 	var mod_title=mod_name
-	var mod_tags=[]
 	if Steam.setItemTitle(handler_id, str(mod_name))==false:
 		print("Error with setting title")
-	#Steam.setItemContent(handler_id, mod_path)
 	if Steam.setItemPreview(handler_id, icon_path)==false:
 		print("Error with setting icon")
 	if Steam.setItemDescription(handler_id, mod_description)==false:
 		print("Error with setting description")
+	if Steam.setItemTags(handler_id, mod_tags)==false:
+		print("Error with setting description")
 	if Steam.setItemContent(handler_id, mod_path)==false:
 		print("Error with mod content path or something else")
-	Steam.submitItemUpdate(handler_id, "Initial")
+	Steam.submitItemUpdate(handler_id, "")
 	if result==0:
 		print("Error. Something went wrong. Well, fuck")
 	print("Done 3")
@@ -249,3 +248,59 @@ func _on_origins_tag_button_pressed():
 	else:
 		mod_tags.append("origins")
 		$enter_something/enter_tags/tags/origins.add_theme_color_override("font_color", Color.RED)
+
+func _on_enemies_tag_button_pressed():
+	if "enemies" in mod_tags:
+		mod_tags.erase("enemies")
+		$enter_something/enter_tags/tags/enemies.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("enemies")
+		$enter_something/enter_tags/tags/enemies.add_theme_color_override("font_color", Color.RED)
+
+func _on_story_tag_button_pressed():
+	if "story" in mod_tags:
+		mod_tags.erase("story")
+		$enter_something/enter_tags/tags/story.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("story")
+		$enter_something/enter_tags/tags/story.add_theme_color_override("font_color", Color.RED)
+
+func _on_arena_tag_button_pressed():
+	if "arena" in mod_tags:
+		mod_tags.erase("arena")
+		$enter_something/enter_tags/tags/arena.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("arena")
+		$enter_something/enter_tags/tags/arena.add_theme_color_override("font_color", Color.RED)
+		
+func _on_playground_tag_button_pressed():
+	if "playground" in mod_tags:
+		mod_tags.erase("playground")
+		$enter_something/enter_tags/tags/playground.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("playground")
+		$enter_something/enter_tags/tags/playground.add_theme_color_override("font_color", Color.RED)
+
+func _on_gameplay_tag_button_pressed():
+	if "gameplay" in mod_tags:
+		mod_tags.erase("gameplay")
+		$enter_something/enter_tags/tags/gameplay.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("gameplay")
+		$enter_something/enter_tags/tags/gameplay.add_theme_color_override("font_color", Color.RED)
+
+func _on_sound_tag_button_pressed():
+	if "sound" in mod_tags:
+		mod_tags.erase("sound")
+		$enter_something/enter_tags/tags/sound.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("sound")
+		$enter_something/enter_tags/tags/sound.add_theme_color_override("font_color", Color.RED)
+
+func _on_music_tag_button_pressed():
+	if "music" in mod_tags:
+		mod_tags.erase("music")
+		$enter_something/enter_tags/tags/music.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("music")
+		$enter_something/enter_tags/tags/music.add_theme_color_override("font_color", Color.RED)
