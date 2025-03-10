@@ -2,7 +2,7 @@ extends Node2D
 
 var AppID="488860"
 var ItemID
-var version="0.0.5"
+var version="0.0.7"
 var steam_running=false
 var current_item_id=0
 
@@ -10,7 +10,7 @@ var tags=["weapons", "armor", "characters", "origins", "enemies",
 "story", "arena", "playground", "gameplay", "sound", "music",
 "scripts", "other", "replacment", "overhaul", "QOL",
 "balance", "silly", "vanilla-friendly", "custom-stage"]
-var mode=""
+var mode="upload"
 
 var mod_name="New mod"
 var mod_description="Your description"
@@ -24,14 +24,23 @@ var mod_icon_updated=0
 var mod_tags_updated=0
 var mod_path_updated=0
 
+var mod_update_id=""
+
 signal item_created
 
 func reset_mod_params():
-	mod_name="New mod"
-	mod_description="Your description"
-	icon_path=""
-	mod_tags=[]
-	mod_path=""
+	if mode=="upload":
+		mod_name="New mod"
+		mod_description="Your description"
+		icon_path=""
+		mod_tags=[]
+		mod_path=""
+	if mode=="update":
+		mod_name=""
+		mod_description=""
+		icon_path=""
+		mod_tags=[]
+		mod_path=""
 	
 	mod_name_updated=0
 	mod_description_updated=0
@@ -81,6 +90,8 @@ func _ready():
 	$enter_something/enter_description_table.hide()
 	$enter_something/enter_name_table.hide()
 	$enter_something/enter_tags.hide()
+	$message.hide()
+	$enter_something/enter_id.hide()
 
 func _on_upload_mod_button_pressed():
 	$upload_update.hide()
@@ -138,22 +149,16 @@ func _on_cancel_name_button_pressed():
 func _on_confirm_name_button_pressed():
 	$enter_something.hide()
 	$enter_something/enter_name_table.hide()
-	if $enter_something/enter_name_table/enter_name.text=="" or $enter_something/enter_name_table/enter_name.text==" ":
-		mod_name="New mod"
-	else:
-		mod_name=str($enter_something/enter_name_table/enter_name.text)
+	mod_name=str($enter_something/enter_name_table/enter_name.text)
 	$enter_something/enter_name_table/enter_name.text=""
 	update_mod_preview()
 	
 func _on_confirm_description_button_pressed():
 	$enter_something.hide()
 	$enter_something/enter_description_table.hide()
-	if $enter_something/enter_description_table/description_table.text=="" or $enter_something/enter_description_table/description_table.text==" ":
-		mod_description="Your description"
-	else:
-		mod_description=$enter_something/enter_description_table/description_table.text
-		$enter_something/enter_description_table/description_table.text=""
-		update_mod_preview()
+	mod_description=$enter_something/enter_description_table/description_table.text
+	$enter_something/enter_description_table/description_table.text=""
+	update_mod_preview()
 
 func _on_cancel_description_button_pressed():
 	$enter_something.hide()
@@ -172,29 +177,73 @@ func _on_item_created(result: int, file_id: int, accept_tos: bool):
 	var metadata:ConfigFile=ConfigFile.new()
 	var mod_title=mod_name
 	if Steam.setItemTitle(handler_id, str(mod_name))==false:
-		print("Error with setting title")
+		$message/message.text="Error with setting title"
 	if Steam.setItemPreview(handler_id, icon_path)==false:
-		print("Error with setting icon")
+		$message/message.text="Error with setting icon"
 	if Steam.setItemDescription(handler_id, mod_description)==false:
-		print("Error with setting description")
+		$message/message.text="Error with setting description"
 	if Steam.setItemTags(handler_id, mod_tags)==false:
-		print("Error with setting description")
+		$message/message.text="Error with setting description"
 	if Steam.setItemContent(handler_id, mod_path)==false:
-		print("Error with mod content path or something else")
+		$message/message.text="Error with mod content path or something else"
 	Steam.submitItemUpdate(handler_id, "")
 	if result==0:
-		print("Error. Something went wrong. Well, fuck")
+		$message/message.text="Error. Something went wrong. Well, fuck"
+	else:
+		$message/message.text="Done!"
+	$message/confirm.show()
+	print("Done 3")
+	
+func update_current_mod(id):
+	print("Done 2")
+	var handler_id=Steam.startItemUpdate(488860, id)
+	print(id)
+	var mod_id=current_item_id
+	var metadata:ConfigFile=ConfigFile.new()
+	var mod_title=mod_name
+	if mod_name!="":
+		if Steam.setItemTitle(handler_id, str(mod_name))==false:
+			$message/message.text="Error with setting title"
+	if icon_path!="":
+		if Steam.setItemPreview(handler_id, icon_path)==false:
+			$message/message.text="Error with setting icon"
+	if mod_description!="":
+		if Steam.setItemDescription(handler_id, mod_description)==false:
+			$message/message.text="Error with setting description"
+	if mod_tags!=[]:
+		if Steam.setItemTags(handler_id, mod_tags)==false:
+			$message/message.text="Error with setting description"
+	if mod_path!="":
+		if Steam.setItemContent(handler_id, mod_path)==false:
+			$message/message.text="Error with mod content path or something else"
+	Steam.submitItemUpdate(handler_id, "")
+	$message/message.text="Done!"
+	$message/confirm.show()
 	print("Done 3")
 
+
 func _on_upload_mod_to_workshop_button_pressed():
-	if mode=="upload":
-		print("Done 0")
-		Steam.createItem(488860,  Steam.WORKSHOP_FILE_TYPE_COMMUNITY)
-		print("Mod Title: "+ mod_name)
-		print("Mod Description: "+mod_description)
-		print("Icon Path: "+str(icon_path))
-		print("Mod folder path:"+str(mod_path))
-		print("Done 1")
+	if steam_running==true:
+		if mode=="upload":
+			$message.show()
+			$message/loading.text="LOADING..."
+			$message/message.text=""
+			$message/confirm.hide()
+			print("Done 0")
+			Steam.createItem(488860,  Steam.WORKSHOP_FILE_TYPE_COMMUNITY)
+			print("Mod Title: "+ mod_name)
+			print("Mod Description: "+mod_description)
+			print("Icon Path: "+str(icon_path))
+			print("Mod folder path:"+str(mod_path))
+			print("Done 1")
+		if mode=="update":
+			$enter_something.show()
+			$enter_something/enter_id.show()
+	else:
+		$message.show()
+		$message/loading.text="Error!"
+		$message/message.text="You are not connected to Steam"
+		$message/confirm.show()
 
 func _on_confirm_tags_button_pressed():
 	$enter_something/enter_tags.hide()
@@ -304,3 +353,100 @@ func _on_music_tag_button_pressed():
 	else:
 		mod_tags.append("music")
 		$enter_something/enter_tags/tags/music.add_theme_color_override("font_color", Color.RED)
+
+func _on_scripts_tag_button_pressed():
+	if "scripts" in mod_tags:
+		mod_tags.erase("scripts")
+		$enter_something/enter_tags/tags/scripts.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("scripts")
+		$enter_something/enter_tags/tags/scripts.add_theme_color_override("font_color", Color.RED)
+
+func _on_other_tag_button_pressed():
+	if "other" in mod_tags:
+		mod_tags.erase("other")
+		$enter_something/enter_tags/tags/other.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("other")
+		$enter_something/enter_tags/tags/other.add_theme_color_override("font_color", Color.RED)
+
+func _on_replacement_tag_button_pressed():
+	if "replacement" in mod_tags:
+		mod_tags.erase("replacement")
+		$enter_something/enter_tags/tags/replacement.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("replacement")
+		$enter_something/enter_tags/tags/replacement.add_theme_color_override("font_color", Color.RED)
+
+func _on_overhaul_tag_button_pressed():
+	if "overhaul" in mod_tags:
+		mod_tags.erase("overhaul")
+		$enter_something/enter_tags/tags/overhaul.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("overhaul")
+		$enter_something/enter_tags/tags/overhaul.add_theme_color_override("font_color", Color.RED)
+
+func _on_qol_tag_button_pressed():
+	if "QOL" in mod_tags:
+		mod_tags.erase("QOL")
+		$enter_something/enter_tags/tags/QOL.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("QOL")
+		$enter_something/enter_tags/tags/QOL.add_theme_color_override("font_color", Color.RED)
+
+func _on_balance_tag_button_pressed():
+	if "balance" in mod_tags:
+		mod_tags.erase("balance")
+		$enter_something/enter_tags/tags/balance.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("balance")
+		$enter_something/enter_tags/tags/balance.add_theme_color_override("font_color", Color.RED)
+		
+func _on_silly_tag_button_pressed():
+	if "silly" in mod_tags:
+		mod_tags.erase("silly")
+		$enter_something/enter_tags/tags/silly.add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("silly")
+		$enter_something/enter_tags/tags/silly.add_theme_color_override("font_color", Color.RED)
+
+func _on_custom_tag_button_pressed():
+	if "custom-stage" in mod_tags:
+		mod_tags.erase("custom-stage")
+		$"enter_something/enter_tags/tags/custom-stage".add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("custom-stage")
+		$"enter_something/enter_tags/tags/custom-stage".add_theme_color_override("font_color", Color.RED)
+
+func _on_vanilla_tag_button_pressed():
+	if "vanilla-friendly" in mod_tags:
+		mod_tags.erase("vanilla-friendly")
+		$"enter_something/enter_tags/tags/vanilla-friendly".add_theme_color_override("font_color", Color.WHITE)
+	else:
+		mod_tags.append("vanilla-friendly")
+		$"enter_something/enter_tags/tags/vanilla-friendly".add_theme_color_override("font_color", Color.RED)
+
+func _on_confirm_message_pressed():
+	$message.hide()
+
+func _on_update_mod_button_pressed():
+	$upload_update.hide()
+	$setup_mode.show()
+	$mode_preview.show()
+	mode="update"
+	$setup_mode/upload.text="Update!"
+	reset_mod_params()
+	update_mod_preview()
+
+
+func _on_confirm_id_button_pressed():
+	mod_update_id=int($enter_something/enter_id/enter_id.text)
+	print("Mod Title: "+ mod_name)
+	print("Mod Description: "+mod_description)
+	print("Icon Path: "+str(icon_path))
+	print("Mod folder path:"+str(mod_path))
+	print("Done 1")
+	update_current_mod(mod_update_id)
+	$enter_something.hide()
+	$enter_something/enter_id.hide()
+	$enter_something/enter_id/enter_id.text=""
