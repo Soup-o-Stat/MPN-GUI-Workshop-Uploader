@@ -2,6 +2,8 @@ extends Node2D
 
 func _ready():
 	$ui/ver.text="Ver "+Global.version
+	print("Game Owned:")
+	print(Steam.isSubscribed())
 
 func _on_upload_button_mouse_entered():
 	if Global.animations==true:
@@ -53,3 +55,6 @@ func _on_settings_button_mouse_entered():
 
 func _on_settings_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/settings.tscn")
+
+func _on_open_workshop_button_pressed():
+	Steam.activateGameOverlayToWebPage("https://steamcommunity.com/app/488860/workshop/")
