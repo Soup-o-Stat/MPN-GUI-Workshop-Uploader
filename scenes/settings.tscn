@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://lfc24qu3d1f7"]
+
+[ext_resource type="Script" uid="uid://bpg4x7sihpfkw" path="res://scripts/settings.gd" id="1_6wm04"]
+[ext_resource type="PackedScene" uid="uid://h65pe5u00faj" path="res://scenes/background.tscn" id="1_r6d6q"]
+[ext_resource type="FontFile" uid="uid://dbi6l6gskqcr8" path="res://media/fonts/BlackOpsOne-Regular.ttf" id="2_6wm04"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f4mfi"]
+light_mode = 1
+
+[node name="settings" type="Node2D"]
+script = ExtResource("1_6wm04")
+
+[node name="background" parent="." instance=ExtResource("1_r6d6q")]
+
+[node name="ui" type="Node2D" parent="."]
+material = SubResource("CanvasItemMaterial_f4mfi")
+
+[node name="animations_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 159.0
+offset_bottom = 279.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_6wm04")
+theme_override_font_sizes/font_size = 50
+text = "Animations: ON"
+
+[node name="animations_button" type="TextureButton" parent="ui/animations_label"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 408.0
+offset_bottom = 48.0
+
+[node name="discord_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 336.0
+offset_right = 500.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_6wm04")
+theme_override_font_sizes/font_size = 50
+text = "Discord RPC: ON"
+
+[node name="discord_button" type="TextureButton" parent="ui/discord_label"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 440.0
+offset_bottom = 48.0
+
+[node name="back_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 416.0
+offset_right = 500.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_6wm04")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="back_button" type="TextureButton" parent="ui/back_label"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 136.0
+offset_bottom = 48.0
+
+[connection signal="mouse_entered" from="ui/animations_label/animations_button" to="." method="_on_animations_button_mouse_entered"]
+[connection signal="pressed" from="ui/animations_label/animations_button" to="." method="_on_animations_button_pressed"]
+[connection signal="mouse_entered" from="ui/discord_label/discord_button" to="." method="_on_discord_button_mouse_entered"]
+[connection signal="pressed" from="ui/discord_label/discord_button" to="." method="_on_discord_button_pressed"]
+[connection signal="mouse_entered" from="ui/back_label/back_button" to="." method="_on_back_button_mouse_entered"]
+[connection signal="pressed" from="ui/back_label/back_button" to="." method="_on_back_button_pressed"]

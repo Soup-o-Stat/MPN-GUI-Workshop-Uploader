@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="MPN GUI Workshop Uploader"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="uid://dldomscyhfnxr"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://scripts/global.gd"
 
 [display]
 

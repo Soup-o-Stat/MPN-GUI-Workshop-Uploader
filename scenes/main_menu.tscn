@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://dldomscyhfnxr"]
+
+[ext_resource type="Script" uid="uid://d2t5rkrmrfd18" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="PackedScene" uid="uid://h65pe5u00faj" path="res://scenes/background.tscn" id="2_bqqt6"]
+[ext_resource type="FontFile" uid="uid://dbi6l6gskqcr8" path="res://media/fonts/BlackOpsOne-Regular.ttf" id="3_bqqt6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wu84c"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bqqt6"]
+light_mode = 1
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource("1_ekxnf")
+
+[node name="background" parent="." instance=ExtResource("2_bqqt6")]
+
+[node name="ui" type="Node2D" parent="."]
+material = SubResource("CanvasItemMaterial_wu84c")
+
+[node name="upload_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 159.0
+offset_bottom = 279.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 50
+text = "Upload mod"
+
+[node name="upload_button" type="TextureButton" parent="ui/upload_label"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 320.0
+offset_bottom = 56.0
+
+[node name="update_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 336.0
+offset_right = 383.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 50
+text = "Update mod"
+
+[node name="update_button" type="TextureButton" parent="ui/update_label"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 320.0
+offset_bottom = 56.0
+
+[node name="open_workshop_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 416.0
+offset_right = 484.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 50
+text = "Open Workshop"
+
+[node name="open_workshop_button" type="TextureButton" parent="ui/open_workshop_label"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 424.0
+offset_bottom = 56.0
+
+[node name="settings_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 496.0
+offset_right = 380.0
+offset_bottom = 559.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+
+[node name="settings_button" type="TextureButton" parent="ui/settings_label"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 232.0
+offset_bottom = 56.0
+
+[node name="ver" type="Label" parent="ui"]
+material = SubResource("CanvasItemMaterial_bqqt6")
+offset_left = 992.0
+offset_top = 696.0
+offset_right = 1274.0
+offset_bottom = 719.0
+theme_override_fonts/font = ExtResource("3_bqqt6")
+text = " ver 0.0.1"
+horizontal_alignment = 2
+
+[connection signal="mouse_entered" from="ui/upload_label/upload_button" to="." method="_on_upload_button_mouse_entered"]
+[connection signal="mouse_entered" from="ui/update_label/update_button" to="." method="_on_update_button_mouse_entered"]
+[connection signal="mouse_entered" from="ui/open_workshop_label/open_workshop_button" to="." method="_on_open_workshop_button_mouse_entered"]
+[connection signal="mouse_entered" from="ui/settings_label/settings_button" to="." method="_on_settings_button_mouse_entered"]
+[connection signal="pressed" from="ui/settings_label/settings_button" to="." method="_on_settings_button_pressed"]
