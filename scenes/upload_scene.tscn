@@ -1,0 +1,156 @@
+[gd_scene load_steps=5 format=3 uid="uid://873ahyhpigxe"]
+
+[ext_resource type="PackedScene" uid="uid://h65pe5u00faj" path="res://scenes/background.tscn" id="1_qn63u"]
+[ext_resource type="Script" uid="uid://df60olfnpa0t7" path="res://scenes/upload_scene.gd" id="1_rrlhu"]
+[ext_resource type="FontFile" uid="uid://dbi6l6gskqcr8" path="res://media/fonts/BlackOpsOne-Regular.ttf" id="2_anym8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_anym8"]
+light_mode = 1
+
+[node name="upload_scene" type="Node2D"]
+script = ExtResource("1_rrlhu")
+
+[node name="background" parent="." instance=ExtResource("1_qn63u")]
+
+[node name="ui" type="Node2D" parent="."]
+material = SubResource("CanvasItemMaterial_anym8")
+
+[node name="mod_name_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 512.0
+offset_bottom = 319.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Mod Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description_name_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 336.0
+offset_right = 512.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Mod Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_directory_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 416.0
+offset_right = 512.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Mod Directory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_directory_button" type="TextureButton" parent="ui/mod_directory_label"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 424.0
+offset_bottom = 64.0
+
+[node name="mod_tags_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 768.0
+offset_top = 256.0
+offset_right = 1216.0
+offset_bottom = 319.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Mod Tags"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_youtube_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 776.0
+offset_top = 336.0
+offset_right = 1216.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "YouTube Link"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sketchfab_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 768.0
+offset_top = 416.0
+offset_right = 1216.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Sketchfab Link"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 768.0
+offset_top = 496.0
+offset_right = 1216.0
+offset_bottom = 559.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_button" type="TextureButton" parent="ui/back_label"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 8.0
+offset_right = 296.0
+offset_bottom = 56.0
+
+[node name="preview_and_publish_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_top = 608.0
+offset_right = 1280.0
+offset_bottom = 671.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Preview and Publish"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_icon_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 496.0
+offset_right = 512.0
+offset_bottom = 559.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Mod Icon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_icon_button" type="TextureButton" parent="ui/mod_icon_label"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 8.0
+offset_right = 352.0
+offset_bottom = 56.0
+
+[connection signal="pressed" from="ui/mod_directory_label/mod_directory_button" to="." method="_on_mod_directory_button_pressed"]
+[connection signal="pressed" from="ui/back_label/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ui/mod_icon_label/mod_icon_button" to="." method="_on_mod_icon_button_pressed"]

@@ -97,6 +97,7 @@ text = " ver 0.0.1"
 horizontal_alignment = 2
 
 [connection signal="mouse_entered" from="ui/upload_label/upload_button" to="." method="_on_upload_button_mouse_entered"]
+[connection signal="pressed" from="ui/upload_label/upload_button" to="." method="_on_upload_button_pressed"]
 [connection signal="mouse_entered" from="ui/update_label/update_button" to="." method="_on_update_button_mouse_entered"]
 [connection signal="mouse_entered" from="ui/open_workshop_label/open_workshop_button" to="." method="_on_open_workshop_button_mouse_entered"]
 [connection signal="pressed" from="ui/open_workshop_label/open_workshop_button" to="." method="_on_open_workshop_button_pressed"]

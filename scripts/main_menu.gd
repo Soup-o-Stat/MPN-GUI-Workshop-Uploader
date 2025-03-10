@@ -58,3 +58,6 @@ func _on_settings_button_pressed():
 
 func _on_open_workshop_button_pressed():
 	Steam.activateGameOverlayToWebPage("https://steamcommunity.com/app/488860/workshop/")
+
+func _on_upload_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/upload_scene.tscn")

@@ -10,6 +10,13 @@ var current_item_id=0
 var animations=false
 var discord_rpc=true
 
+#mod settings
+var mod_name="New mod"
+var mod_description="Your description"
+var icon_path=""
+var mod_tags=[]
+var mod_path=""
+
 func steam_init():
 	OS.set_environment("SteamAppID", AppID)
 	OS.set_environment("SteamGameID", AppID)
