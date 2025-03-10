@@ -1,9 +1,13 @@
 extends Node2D
 
 func _ready():
+	if Global.discord_rpc:
+		Global._update_discord_activity("In main menu", "")
 	$ui/ver.text="Ver "+Global.version
 	print("Game Owned:")
 	print(Steam.isSubscribed())
+	if not Steam.isSubscribed():
+		$ui/ColorRect.show()
 
 func _on_upload_button_mouse_entered():
 	if Global.animations==true:

@@ -96,6 +96,29 @@ theme_override_fonts/font = ExtResource("3_bqqt6")
 text = " ver 0.0.1"
 horizontal_alignment = 2
 
+[node name="ColorRect" type="ColorRect" parent="ui"]
+visible = false
+use_parent_material = true
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="Label" type="Label" parent="ui/ColorRect"]
+use_parent_material = true
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 50
+text = "Error!
+Steam is closed, or you don't have a game
+Open Steam or 
+BUY MADNESS: Project Nexus
+and restart this fucking program"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="mouse_entered" from="ui/upload_label/upload_button" to="." method="_on_upload_button_mouse_entered"]
 [connection signal="pressed" from="ui/upload_label/upload_button" to="." method="_on_upload_button_pressed"]
 [connection signal="mouse_entered" from="ui/update_label/update_button" to="." method="_on_update_button_mouse_entered"]

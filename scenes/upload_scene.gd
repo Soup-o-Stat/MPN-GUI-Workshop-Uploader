@@ -10,6 +10,8 @@ func reset_mods_params():
 	var mod_path=""
 
 func _ready():
+	if Global.discord_rpc:
+		Global._update_discord_activity("Uploading mod", "")
 	reset_mods_params()
 	Steam.connect("item_created", _on_item_created, CONNECT_PERSIST)
 

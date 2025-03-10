@@ -17,6 +17,20 @@ var icon_path=""
 var mod_tags=[]
 var mod_path=""
 
+func _set_discord_activity():
+	DiscordRPC.app_id = 1348698462837014610
+	DiscordRPC.details = ""
+	DiscordRPC.state = ""
+	DiscordRPC.large_image = "icon"
+	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
+	DiscordRPC.refresh()
+
+func _update_discord_activity(details, state):
+	DiscordRPC.details = details
+	DiscordRPC.state = state
+	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
+	DiscordRPC.refresh()
+
 func steam_init():
 	OS.set_environment("SteamAppID", AppID)
 	OS.set_environment("SteamGameID", AppID)
@@ -35,6 +49,7 @@ func steam_init():
 	print(steam_running)
 
 func _ready():
+	_set_discord_activity()
 	steam_init()
 	
 func _process(delta):
