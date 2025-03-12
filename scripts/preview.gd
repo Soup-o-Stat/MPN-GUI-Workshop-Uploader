@@ -3,6 +3,7 @@ extends Node2D
 var current_item_id=0
 
 func _ready():
+	Global._update_discord_activity("Preview mod", str(Global.mod_name))
 	if Global.mode=="upload":
 		$ui/publish.text="Upload!"
 	else:

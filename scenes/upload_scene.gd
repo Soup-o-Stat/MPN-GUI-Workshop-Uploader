@@ -21,7 +21,10 @@ func _ready():
 	if Global.from_preview==0:
 		reset_mods_params()
 	if Global.discord_rpc:
-		Global._update_discord_activity("Uploading mod", "")
+		if Global.mode=="upload":
+			Global._update_discord_activity("Uploading mod", "")
+		if Global.mode=="update":
+			Global._update_discord_activity("Updating mod", "")
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
