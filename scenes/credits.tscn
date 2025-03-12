@@ -25,9 +25,12 @@ offset_right = 159.0
 offset_bottom = 279.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_2ckv8")
-theme_override_font_sizes/font_size = 50
-text = "Created by Soup-o-Stat
-MPN (and assets) created by GIBBING TREE"
+theme_override_font_sizes/font_size = 35
+text = "MPN: GUI Workshop Uploader created by Soup-o-Stat
+MPN (and assets) created by GIBBING TREE
+Using addons: Godotsteam, DiscordRPC GD 
+
+Created with Godot 4.4"
 
 [node name="back" type="Label" parent="ui"]
 use_parent_material = true
@@ -57,6 +60,7 @@ offset_bottom = 688.0
 texture_normal = ExtResource("4_8gwij")
 
 [node name="tg_button" type="TextureButton" parent="ui"]
+visible = false
 use_parent_material = true
 offset_left = 192.0
 offset_top = 560.0

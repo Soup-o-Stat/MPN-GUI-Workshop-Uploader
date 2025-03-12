@@ -74,4 +74,7 @@ func _on_update_button_pressed():
 func _on_confirm_button_pressed():
 	Global.mode="update"
 	Global.update_item_id=int($ui/blur/enter_mod_id.text)
-	get_tree().change_scene_to_file("res://scenes/upload_scene.tscn")
+	$ui/blur.hide()
+	if Global.update_item_id:
+		get_tree().change_scene_to_file("res://scenes/upload_scene.tscn")
+	$ui/blur/enter_mod_id.clear()
