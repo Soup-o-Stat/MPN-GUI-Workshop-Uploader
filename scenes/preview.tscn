@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://b17intqqudrq4"]
+
+[ext_resource type="Script" uid="uid://cj4hpf1nbwevu" path="res://scripts/preview.gd" id="1_q0vb1"]
+[ext_resource type="PackedScene" uid="uid://h65pe5u00faj" path="res://scenes/background.tscn" id="1_virtx"]
+[ext_resource type="Texture2D" uid="uid://80107taqency" path="res://media/gfx/no_image.png" id="2_q0vb1"]
+[ext_resource type="FontFile" uid="uid://dbi6l6gskqcr8" path="res://media/fonts/BlackOpsOne-Regular.ttf" id="3_d1w7t"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_af0jo"]
+light_mode = 1
+
+[node name="preview" type="Node2D"]
+script = ExtResource("1_q0vb1")
+
+[node name="background" parent="." instance=ExtResource("1_virtx")]
+
+[node name="ui" type="Node2D" parent="."]
+material = SubResource("CanvasItemMaterial_af0jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="ui"]
+use_parent_material = true
+position = Vector2(1120, 296)
+texture = ExtResource("2_q0vb1")
+
+[node name="mod_name" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 512.0
+offset_top = 80.0
+offset_right = 1232.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 25
+text = "Mod name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_tags" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 960.0
+offset_top = -96.0
+offset_right = 1152.0
+offset_bottom = -64.0
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 25
+text = "Mod tags"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_description" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 32.0
+offset_top = 168.0
+offset_right = 952.0
+offset_bottom = 696.0
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 20
+text = "Your description"
+autowrap_mode = 3
+
+[node name="publish" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 992.0
+offset_top = 576.0
+offset_right = 1248.0
+offset_bottom = 640.0
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 35
+text = "Publish"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="publish_button" type="TextureButton" parent="ui/publish"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 56.0
+
+[node name="back" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 992.0
+offset_top = 480.0
+offset_right = 1248.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 35
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ui/publish/publish_button" to="." method="_on_publish_button_pressed"]

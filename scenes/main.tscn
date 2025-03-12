@@ -258,6 +258,7 @@ text = "Your description"
 autowrap_mode = 3
 
 [node name="enter_something" type="Node2D" parent="."]
+visible = false
 material = SubResource("CanvasItemMaterial_qrl76")
 
 [node name="blur" type="ColorRect" parent="enter_something"]
