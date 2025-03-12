@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dldomscyhfnxr"]
+[gd_scene load_steps=8 format=3 uid="uid://dldomscyhfnxr"]
 
 [ext_resource type="Script" uid="uid://d2t5rkrmrfd18" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://h65pe5u00faj" path="res://scenes/background.tscn" id="2_bqqt6"]
@@ -8,6 +8,12 @@
 light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bqqt6"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8ln24"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rtw2f"]
 light_mode = 1
 
 [node name="main_menu" type="Node2D"]
@@ -78,7 +84,7 @@ offset_bottom = 559.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_bqqt6")
 theme_override_font_sizes/font_size = 50
-text = "Settings"
+text = "Credits"
 
 [node name="settings_button" type="TextureButton" parent="ui/settings_label"]
 layout_mode = 0
@@ -119,10 +125,63 @@ and restart this fucking program"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="credits" type="Label" parent="ui"]
+material = SubResource("CanvasItemMaterial_8ln24")
+offset_left = 8.0
+offset_top = 696.0
+offset_right = 290.0
+offset_bottom = 719.0
+theme_override_fonts/font = ExtResource("3_bqqt6")
+text = "Created by Soup-o-Stat"
+
+[node name="blur" type="ColorRect" parent="ui"]
+visible = false
+material = SubResource("CanvasItemMaterial_rtw2f")
+use_parent_material = true
+offset_top = 8.0
+offset_right = 1280.0
+offset_bottom = 728.0
+color = Color(0, 0, 0, 0.8)
+
+[node name="enter_mod_id" type="LineEdit" parent="ui/blur"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 256.0
+offset_top = 320.0
+offset_right = 1024.0
+offset_bottom = 400.0
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 35
+placeholder_text = "Enter mod ID"
+alignment = 1
+max_length = 50
+
+[node name="confirm" type="Label" parent="ui/blur"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 440.0
+offset_right = 1280.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 30
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm_button" type="TextureButton" parent="ui/blur/confirm"]
+layout_mode = 0
+offset_left = 568.0
+offset_right = 712.0
+offset_bottom = 40.0
+
 [connection signal="mouse_entered" from="ui/upload_label/upload_button" to="." method="_on_upload_button_mouse_entered"]
 [connection signal="pressed" from="ui/upload_label/upload_button" to="." method="_on_upload_button_pressed"]
 [connection signal="mouse_entered" from="ui/update_label/update_button" to="." method="_on_update_button_mouse_entered"]
+[connection signal="pressed" from="ui/update_label/update_button" to="." method="_on_update_button_pressed"]
 [connection signal="mouse_entered" from="ui/open_workshop_label/open_workshop_button" to="." method="_on_open_workshop_button_mouse_entered"]
 [connection signal="pressed" from="ui/open_workshop_label/open_workshop_button" to="." method="_on_open_workshop_button_pressed"]
 [connection signal="mouse_entered" from="ui/settings_label/settings_button" to="." method="_on_settings_button_mouse_entered"]
 [connection signal="pressed" from="ui/settings_label/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ui/blur/confirm/confirm_button" to="." method="_on_confirm_button_pressed"]

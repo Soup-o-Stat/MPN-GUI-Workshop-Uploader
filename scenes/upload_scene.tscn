@@ -78,6 +78,7 @@ layout_mode = 0
 offset_left = 24.0
 offset_right = 424.0
 offset_bottom = 64.0
+metadata/_edit_use_anchors_ = true
 
 [node name="mod_tags_label" type="Label" parent="ui"]
 use_parent_material = true

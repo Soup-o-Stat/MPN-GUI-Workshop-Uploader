@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx2cgyslrb4ud"]
+
+[ext_resource type="PackedScene" uid="uid://h65pe5u00faj" path="res://scenes/background.tscn" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://d3v6ws7pd5coi" path="res://scripts/credits.gd" id="1_0ctdu"]
+[ext_resource type="FontFile" uid="uid://dbi6l6gskqcr8" path="res://media/fonts/BlackOpsOne-Regular.ttf" id="2_2ckv8"]
+[ext_resource type="Texture2D" uid="uid://winlx2n2dx0l" path="res://media/gfx/bluesky.png" id="4_8gwij"]
+[ext_resource type="Texture2D" uid="uid://dcjjacxuegkv6" path="res://media/gfx/telegram.png" id="5_mah5v"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2ckv8"]
+light_mode = 1
+
+[node name="credits" type="Node2D"]
+script = ExtResource("1_0ctdu")
+
+[node name="background" parent="." instance=ExtResource("1_0bpdh")]
+
+[node name="ui" type="Node2D" parent="."]
+material = SubResource("CanvasItemMaterial_2ckv8")
+
+[node name="label1" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 159.0
+offset_bottom = 279.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_2ckv8")
+theme_override_font_sizes/font_size = 50
+text = "Created by Soup-o-Stat
+MPN (and assets) created by GIBBING TREE"
+
+[node name="back" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 1064.0
+offset_top = 640.0
+offset_right = 1320.0
+offset_bottom = 704.0
+theme_override_fonts/font = ExtResource("2_2ckv8")
+theme_override_font_sizes/font_size = 35
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_button" type="TextureButton" parent="ui/back"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="bluesky_button" type="TextureButton" parent="ui"]
+use_parent_material = true
+offset_left = 32.0
+offset_top = 560.0
+offset_right = 160.0
+offset_bottom = 688.0
+texture_normal = ExtResource("4_8gwij")
+
+[node name="tg_button" type="TextureButton" parent="ui"]
+use_parent_material = true
+offset_left = 192.0
+offset_top = 560.0
+offset_right = 320.0
+offset_bottom = 688.0
+texture_normal = ExtResource("5_mah5v")
+
+[connection signal="pressed" from="ui/back/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ui/bluesky_button" to="." method="_on_bluesky_button_pressed"]
+[connection signal="pressed" from="ui/tg_button" to="." method="_on_tg_button_pressed"]

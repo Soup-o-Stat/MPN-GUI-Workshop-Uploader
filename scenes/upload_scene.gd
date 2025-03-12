@@ -20,37 +20,8 @@ func _ready():
 	visibile_input()
 	if Global.from_preview==0:
 		reset_mods_params()
-	elif Global.from_preview==1:
-		Global.from_preview=0
 	if Global.discord_rpc:
 		Global._update_discord_activity("Uploading mod", "")
-	reset_mods_params()
-	Steam.connect("item_created", _on_item_created, CONNECT_PERSIST)
-
-func _on_item_created(result: int, file_id: int, accept_tos: bool):
-	print("Done 2")
-	var handler_id=Steam.startItemUpdate(488860, file_id)
-	print(file_id)
-	#var mod_id=current_item_id
-	#var metadata:ConfigFile=ConfigFile.new()
-	#var mod_title=mod_name
-	#if Steam.setItemTitle(handler_id, str(mod_name))==false:
-		#$message/message.text="Error with setting title"
-	#if Steam.setItemPreview(handler_id, icon_path)==false:
-		#$message/message.text="Error with setting icon"
-	#if Steam.setItemDescription(handler_id, mod_description)==false:
-		#$message/message.text="Error with setting description"
-	#if Steam.setItemTags(handler_id, mod_tags)==false:
-		#$message/message.text="Error with setting description"
-	#if Steam.setItemContent(handler_id, mod_path)==false:
-		#$message/message.text="Error with mod content path or something else"
-	#Steam.submitItemUpdate(handler_id, "")
-	#if result==0:
-		#$message/message.text="Error. Something went wrong. Well, fuck"
-	#else:
-		#$message/message.text="Done!"
-	#$message/confirm.show()
-	#print("Done 3")
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

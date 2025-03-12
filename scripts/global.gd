@@ -18,6 +18,8 @@ var mod_tags=[]
 var mod_path=""
 
 var from_preview=0
+var mode="upload"
+var update_item_id=0
 
 func _set_discord_activity():
 	DiscordRPC.app_id = 1348698462837014610
