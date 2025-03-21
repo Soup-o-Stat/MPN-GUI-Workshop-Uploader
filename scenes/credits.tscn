@@ -28,7 +28,7 @@ theme_override_fonts/font = ExtResource("2_2ckv8")
 theme_override_font_sizes/font_size = 35
 text = "MPN: GUI Workshop Uploader created by Soup-o-Stat
 MPN (and assets) created by GIBBING TREE
-Using addons: Godotsteam, DiscordRPC GD 
+Addons: Godotsteam, DiscordRPC GD 
 
 Created with Godot 4.4"
 
