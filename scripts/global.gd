@@ -2,7 +2,7 @@ extends Node
 
 var AppID="488860"
 var ItemID
-var version="1.0.1"
+var version="1.0.2"
 var steam_running=false
 var current_item_id=0
 

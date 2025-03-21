@@ -3,11 +3,18 @@ extends Node2D
 var local_mod_icon=""
 
 func reset_mods_params():
-	Global.mod_name="New mod"
-	Global.mod_description="Your description"
-	Global.icon_path=""
-	Global.mod_tags=[]
-	Global.mod_path=""
+	if Global.mode=="upload":
+		Global.mod_name="New mod"
+		Global.mod_description="Your description"
+		Global.icon_path=""
+		Global.mod_tags=[]
+		Global.mod_path=""
+	else:
+		Global.mod_name=""
+		Global.mod_description=""
+		Global.icon_path=""
+		Global.mod_tags=[]
+		Global.mod_path=""
 
 func visibile_input():
 	$input_ui/input_name.hide()
