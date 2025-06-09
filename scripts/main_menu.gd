@@ -79,3 +79,7 @@ func _on_confirm_button_pressed():
 	if Global.update_item_id:
 		get_tree().change_scene_to_file("res://scenes/upload_scene.tscn")
 	$ui/blur/enter_mod_id.clear()
+
+
+func _on_my_mods_button_pressed() -> void:
+	Steam.activateGameOverlayToWebPage("https://steamcommunity.com/id/"+str(Global.nickname)+"/myworkshopfiles/?appid=488860")

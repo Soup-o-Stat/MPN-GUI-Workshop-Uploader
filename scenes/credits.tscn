@@ -30,7 +30,7 @@ text = "MPN: GUI Workshop Uploader created by Soup-o-Stat
 MPN (and assets) created by GIBBING TREE
 Addons: Godotsteam, DiscordRPC GD 
 
-Created with Godot 4.4"
+Made with Godot 4.4"
 
 [node name="back" type="Label" parent="ui"]
 use_parent_material = true

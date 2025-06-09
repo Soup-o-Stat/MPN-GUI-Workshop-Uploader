@@ -158,6 +158,7 @@ offset_right = 920.0
 offset_bottom = 56.0
 
 [node name="input_ui" type="Node2D" parent="."]
+visible = false
 material = SubResource("CanvasItemMaterial_rrlhu")
 
 [node name="blur" type="ColorRect" parent="input_ui"]
@@ -276,6 +277,7 @@ offset_right = 192.0
 offset_bottom = 40.0
 
 [node name="enter_tags" type="Node2D" parent="input_ui"]
+visible = false
 use_parent_material = true
 
 [node name="tags" type="Label" parent="input_ui/enter_tags"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb2i6eo7gp21a"]
+
+[ext_resource type="Texture2D" uid="uid://cu6ksd1rbwtrb" path="res://media/gfx/soup-o-stat_logo-export.png" id="1_ioskq"]
+[ext_resource type="Script" uid="uid://bjnm8sg83kvdf" path="res://scripts/intro.gd" id="1_yjqpq"]
+
+[sub_resource type="Animation" id="Animation_ioskq"]
+resource_name = "idle"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Soup-o-statLogo-export:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yjqpq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Soup-o-statLogo-export:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4bx60"]
+_data = {
+&"RESET": SubResource("Animation_yjqpq"),
+&"idle": SubResource("Animation_ioskq")
+}
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_yjqpq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(320, 180)
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Soup-o-statLogo-export" type="Sprite2D" parent="."]
+position = Vector2(640, 344)
+texture = ExtResource("1_ioskq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4bx60")
+}
+autoplay = "idle"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

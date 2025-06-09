@@ -2,9 +2,10 @@ extends Node
 
 var AppID="488860"
 var ItemID
-var version="1.0.2"
+var version="1.0.3"
 var steam_running=false
 var current_item_id=0
+var nickname
 
 # settings
 var animations=false
@@ -46,7 +47,7 @@ func steam_init():
 		steam_running=false
 	print("steam is running")
 	var id=Steam.getSteamID()
-	var nickname=Steam.getFriendPersonaName(id)
+	nickname=Steam.getFriendPersonaName(id)
 	print(nickname)
 	print(id)
 	steam_running=true
