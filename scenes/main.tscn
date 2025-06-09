@@ -6,10 +6,10 @@
 [ext_resource type="FontFile" uid="uid://dbi6l6gskqcr8" path="res://media/fonts/BlackOpsOne-Regular.ttf" id="2_8fs5r"]
 [ext_resource type="Texture2D" uid="uid://80107taqency" path="res://media/gfx/no_image.png" id="5_mppla"]
 
-[sub_resource type="Gradient" id="Gradient_ojf1j"]
+[sub_resource type="Gradient" id="Gradient_tbgi4"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_c1nom"]
-gradient = SubResource("Gradient_ojf1j")
+gradient = SubResource("Gradient_tbgi4")
 fill_from = Vector2(1, 0.5)
 fill_to = Vector2(0, 0.5)
 metadata/_snap_enabled = true
@@ -258,6 +258,7 @@ text = "Your description"
 autowrap_mode = 3
 
 [node name="enter_something" type="Node2D" parent="."]
+visible = false
 material = SubResource("CanvasItemMaterial_qrl76")
 
 [node name="blur" type="ColorRect" parent="enter_something"]

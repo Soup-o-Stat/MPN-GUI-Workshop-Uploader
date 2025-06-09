@@ -11,15 +11,28 @@ config_version=5
 [application]
 
 config/name="MPN GUI Workshop Uploader"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="uid://bb2i6eo7gp21a"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://bpaxumb6dutmw"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=500
+
+[autoload]
+
+Global="*res://scripts/global.gd"
+DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/discord-rpc-gd/plugin.cfg")
 
 [rendering]
 

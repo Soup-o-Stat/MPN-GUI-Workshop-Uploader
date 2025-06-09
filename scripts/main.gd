@@ -438,7 +438,6 @@ func _on_update_mod_button_pressed():
 	reset_mod_params()
 	update_mod_preview()
 
-
 func _on_confirm_id_button_pressed():
 	mod_update_id=int($enter_something/enter_id/enter_id.text)
 	print("Mod Title: "+ mod_name)

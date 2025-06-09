@@ -1,0 +1,139 @@
+[gd_scene load_steps=7 format=3 uid="uid://b17intqqudrq4"]
+
+[ext_resource type="Script" uid="uid://cj4hpf1nbwevu" path="res://scripts/preview.gd" id="1_q0vb1"]
+[ext_resource type="PackedScene" uid="uid://h65pe5u00faj" path="res://scenes/background.tscn" id="1_virtx"]
+[ext_resource type="Texture2D" uid="uid://80107taqency" path="res://media/gfx/no_image.png" id="2_q0vb1"]
+[ext_resource type="FontFile" uid="uid://dbi6l6gskqcr8" path="res://media/fonts/BlackOpsOne-Regular.ttf" id="3_d1w7t"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_af0jo"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q0vb1"]
+light_mode = 1
+
+[node name="preview" type="Node2D"]
+script = ExtResource("1_q0vb1")
+
+[node name="background" parent="." instance=ExtResource("1_virtx")]
+
+[node name="ui" type="Node2D" parent="."]
+material = SubResource("CanvasItemMaterial_af0jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="ui"]
+use_parent_material = true
+position = Vector2(1120, 296)
+texture = ExtResource("2_q0vb1")
+
+[node name="mod_name" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 512.0
+offset_top = 80.0
+offset_right = 1232.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 25
+text = "Mod name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_tags" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 760.0
+offset_top = 168.0
+offset_right = 968.0
+offset_bottom = 680.0
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 15
+text = "Mod tags"
+autowrap_mode = 3
+
+[node name="mod_description" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 32.0
+offset_top = 168.0
+offset_right = 736.0
+offset_bottom = 696.0
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 20
+text = "Your description"
+autowrap_mode = 3
+
+[node name="publish" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 992.0
+offset_top = 576.0
+offset_right = 1248.0
+offset_bottom = 640.0
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 35
+text = "Publish"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="publish_button" type="TextureButton" parent="ui/publish"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 56.0
+
+[node name="back" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 992.0
+offset_top = 480.0
+offset_right = 1248.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 35
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_button" type="TextureButton" parent="ui/back"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 56.0
+
+[node name="blur" type="ColorRect" parent="ui"]
+material = SubResource("CanvasItemMaterial_q0vb1")
+offset_top = 8.0
+offset_right = 1280.0
+offset_bottom = 728.0
+color = Color(0, 0, 0, 0.8)
+
+[node name="message" type="Label" parent="ui/blur"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 248.0
+offset_right = 1280.0
+offset_bottom = 311.0
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 30
+text = "Error: something went wrong"
+horizontal_alignment = 1
+
+[node name="confirm" type="Label" parent="ui/blur"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 376.0
+offset_right = 1280.0
+offset_bottom = 415.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_d1w7t")
+theme_override_font_sizes/font_size = 30
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm_button" type="TextureButton" parent="ui/blur/confirm"]
+layout_mode = 0
+offset_left = 568.0
+offset_right = 712.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="ui/publish/publish_button" to="." method="_on_publish_button_pressed"]
+[connection signal="pressed" from="ui/back/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ui/blur/confirm/confirm_button" to="." method="_on_confirm_button_pressed"]

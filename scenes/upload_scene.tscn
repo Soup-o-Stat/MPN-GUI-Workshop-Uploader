@@ -1,0 +1,795 @@
+[gd_scene load_steps=7 format=3 uid="uid://873ahyhpigxe"]
+
+[ext_resource type="PackedScene" uid="uid://h65pe5u00faj" path="res://scenes/background.tscn" id="1_qn63u"]
+[ext_resource type="Script" uid="uid://df60olfnpa0t7" path="res://scenes/upload_scene.gd" id="1_rrlhu"]
+[ext_resource type="FontFile" uid="uid://dbi6l6gskqcr8" path="res://media/fonts/BlackOpsOne-Regular.ttf" id="2_anym8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_anym8"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rrlhu"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sje4m"]
+light_mode = 1
+
+[node name="upload_scene" type="Node2D"]
+script = ExtResource("1_rrlhu")
+
+[node name="background" parent="." instance=ExtResource("1_qn63u")]
+
+[node name="ui" type="Node2D" parent="."]
+material = SubResource("CanvasItemMaterial_anym8")
+
+[node name="mod_name_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 512.0
+offset_bottom = 319.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Mod Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_name_button" type="TextureButton" parent="ui/mod_name_label"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 8.0
+offset_right = 368.0
+offset_bottom = 56.0
+
+[node name="description_name_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 336.0
+offset_right = 512.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Mod Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="decription_button" type="TextureButton" parent="ui/description_name_label"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 448.0
+offset_bottom = 56.0
+
+[node name="mod_directory_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 768.0
+offset_top = 336.0
+offset_right = 1216.0
+offset_bottom = 399.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Mod Directory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_directory_button" type="TextureButton" parent="ui/mod_directory_label"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 424.0
+offset_bottom = 64.0
+metadata/_edit_use_anchors_ = true
+
+[node name="mod_tags_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 768.0
+offset_top = 256.0
+offset_right = 1216.0
+offset_bottom = 319.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Mod Tags"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_tags_button" type="TextureButton" parent="ui/mod_tags_label"]
+layout_mode = 0
+offset_left = 96.0
+offset_right = 352.0
+offset_bottom = 56.0
+
+[node name="back_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 768.0
+offset_top = 416.0
+offset_right = 1216.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_button" type="TextureButton" parent="ui/back_label"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 8.0
+offset_right = 296.0
+offset_bottom = 56.0
+
+[node name="mod_icon_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_left = 64.0
+offset_top = 416.0
+offset_right = 512.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Mod Icon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mod_icon_button" type="TextureButton" parent="ui/mod_icon_label"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 8.0
+offset_right = 352.0
+offset_bottom = 56.0
+
+[node name="preview_and_publish_label" type="Label" parent="ui"]
+use_parent_material = true
+offset_top = 576.0
+offset_right = 1280.0
+offset_bottom = 639.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Preview and Publish"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="preview_button" type="TextureButton" parent="ui/preview_and_publish_label"]
+layout_mode = 0
+offset_left = 360.0
+offset_right = 920.0
+offset_bottom = 56.0
+
+[node name="input_ui" type="Node2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_rrlhu")
+
+[node name="blur" type="ColorRect" parent="input_ui"]
+material = SubResource("CanvasItemMaterial_sje4m")
+use_parent_material = true
+offset_top = 8.0
+offset_right = 1280.0
+offset_bottom = 728.0
+color = Color(0, 0, 0, 0.8)
+
+[node name="input_name" type="Node2D" parent="input_ui"]
+visible = false
+use_parent_material = true
+
+[node name="enter_name" type="LineEdit" parent="input_ui/input_name"]
+use_parent_material = true
+offset_left = 256.0
+offset_top = 320.0
+offset_right = 1024.0
+offset_bottom = 400.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 35
+placeholder_text = "Enter mod name"
+alignment = 1
+max_length = 50
+
+[node name="confirm" type="Label" parent="input_ui/input_name"]
+use_parent_material = true
+offset_left = 320.0
+offset_top = 408.0
+offset_right = 512.0
+offset_bottom = 447.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 30
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name_confirm_button" type="TextureButton" parent="input_ui/input_name/confirm"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 40.0
+
+[node name="cancel" type="Label" parent="input_ui/input_name"]
+use_parent_material = true
+offset_left = 768.0
+offset_top = 408.0
+offset_right = 960.0
+offset_bottom = 447.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 30
+text = "Cancel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name_cansel_button" type="TextureButton" parent="input_ui/input_name/cancel"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 40.0
+
+[node name="input_description" type="Node2D" parent="input_ui"]
+visible = false
+use_parent_material = true
+
+[node name="description_table" type="TextEdit" parent="input_ui/input_description"]
+use_parent_material = true
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 1088.0
+offset_bottom = 576.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 25
+placeholder_text = "Enter description"
+wrap_mode = 1
+
+[node name="confirm" type="Label" parent="input_ui/input_description"]
+use_parent_material = true
+offset_left = 256.0
+offset_top = 584.0
+offset_right = 448.0
+offset_bottom = 623.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 30
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm_description_buton" type="TextureButton" parent="input_ui/input_description/confirm"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 40.0
+
+[node name="cancel" type="Label" parent="input_ui/input_description"]
+use_parent_material = true
+offset_left = 832.0
+offset_top = 584.0
+offset_right = 1024.0
+offset_bottom = 623.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 30
+text = "Cancel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cancel_description_button" type="TextureButton" parent="input_ui/input_description/cancel"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 40.0
+
+[node name="enter_tags" type="Node2D" parent="input_ui"]
+visible = false
+use_parent_material = true
+
+[node name="tags" type="Label" parent="input_ui/enter_tags"]
+use_parent_material = true
+offset_left = 472.0
+offset_top = 112.0
+offset_right = 804.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 50
+text = "Choose tags"
+
+[node name="weapons" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -280.0
+offset_top = 128.0
+offset_right = -147.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "weapons"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="weapons_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/weapons"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="armor" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -280.0
+offset_top = 192.0
+offset_right = -147.0
+offset_bottom = 218.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "armor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="armor_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/armor"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="characters" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -280.0
+offset_top = 256.0
+offset_right = -147.0
+offset_bottom = 282.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "characters"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="characters_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/characters"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="origins" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -280.0
+offset_top = 320.0
+offset_right = -147.0
+offset_bottom = 346.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "origins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="origins_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/origins"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="enemies" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -280.0
+offset_top = 384.0
+offset_right = -147.0
+offset_bottom = 410.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "enemies"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="enemies_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/enemies"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="story" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -24.0
+offset_top = 128.0
+offset_right = 109.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "story"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="story_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/story"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="arena" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -24.0
+offset_top = 192.0
+offset_right = 109.0
+offset_bottom = 218.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "arena"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="arena_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/arena"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="playground" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -24.0
+offset_top = 256.0
+offset_right = 109.0
+offset_bottom = 282.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "playground"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="playground_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/playground"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="gameplay" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -24.0
+offset_top = 320.0
+offset_right = 109.0
+offset_bottom = 346.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "gameplay"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="gameplay_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/gameplay"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="sound" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -24.0
+offset_top = 384.0
+offset_right = 109.0
+offset_bottom = 410.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "sound"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sound_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/sound"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="music" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 232.0
+offset_top = 128.0
+offset_right = 365.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="music_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/music"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="scripts" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 232.0
+offset_top = 192.0
+offset_right = 365.0
+offset_bottom = 218.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "scripts"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scripts_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/scripts"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="other" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 232.0
+offset_top = 256.0
+offset_right = 365.0
+offset_bottom = 282.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "other"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="other_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/other"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="replacement" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 232.0
+offset_top = 320.0
+offset_right = 372.0
+offset_bottom = 346.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "replacement"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="replacement_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/replacement"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="overhaul" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 232.0
+offset_top = 384.0
+offset_right = 365.0
+offset_bottom = 410.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "overhaul
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="overhaul_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/overhaul"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="QOL" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 488.0
+offset_top = 128.0
+offset_right = 621.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "QOL
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="qol_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/QOL"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="balance" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 488.0
+offset_top = 192.0
+offset_right = 621.0
+offset_bottom = 218.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "balance
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="balance_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/balance"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="silly" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 488.0
+offset_top = 256.0
+offset_right = 621.0
+offset_bottom = 282.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "silly
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="silly_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/silly"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 32.0
+
+[node name="vanilla-friendly" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 448.0
+offset_top = 320.0
+offset_right = 655.0
+offset_bottom = 346.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "vanilla-friendly
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="vanilla_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/vanilla-friendly"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 192.0
+offset_bottom = 32.0
+
+[node name="custom-stage" type="Label" parent="input_ui/enter_tags/tags"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 448.0
+offset_top = 384.0
+offset_right = 655.0
+offset_bottom = 410.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 20
+text = "custom-stage
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="custom_tag_button" type="TextureButton" parent="input_ui/enter_tags/tags/custom-stage"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 184.0
+offset_bottom = 32.0
+
+[node name="confirm" type="Label" parent="input_ui/enter_tags"]
+use_parent_material = true
+offset_left = 640.0
+offset_top = 576.0
+offset_right = 1280.0
+offset_bottom = 615.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 30
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm_tags_button" type="TextureButton" parent="input_ui/enter_tags/confirm"]
+layout_mode = 0
+offset_left = 248.0
+offset_right = 392.0
+offset_bottom = 40.0
+
+[node name="custom_tag" type="Label" parent="input_ui/enter_tags"]
+use_parent_material = true
+offset_top = 576.0
+offset_right = 640.0
+offset_bottom = 615.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 30
+text = "Custom tags"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="custom_tags_button" type="TextureButton" parent="input_ui/enter_tags/custom_tag"]
+layout_mode = 0
+offset_left = 216.0
+offset_right = 424.0
+offset_bottom = 40.0
+
+[node name="enter_custom_tag" type="Node2D" parent="input_ui/enter_tags"]
+use_parent_material = true
+
+[node name="blur" type="ColorRect" parent="input_ui/enter_tags/enter_custom_tag"]
+material = SubResource("CanvasItemMaterial_sje4m")
+use_parent_material = true
+offset_top = 8.0
+offset_right = 1280.0
+offset_bottom = 728.0
+color = Color(0, 0, 0, 0.8)
+
+[node name="enter_tag" type="LineEdit" parent="input_ui/enter_tags/enter_custom_tag"]
+use_parent_material = true
+offset_left = 256.0
+offset_top = 320.0
+offset_right = 1024.0
+offset_bottom = 400.0
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 35
+placeholder_text = "Enter tag"
+alignment = 1
+max_length = 50
+
+[node name="confirm_tag" type="Label" parent="input_ui/enter_tags/enter_custom_tag"]
+use_parent_material = true
+offset_left = 320.0
+offset_top = 408.0
+offset_right = 512.0
+offset_bottom = 447.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 30
+text = "Append"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="confirm_custom_tag_button" type="TextureButton" parent="input_ui/enter_tags/enter_custom_tag/confirm_tag"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 40.0
+
+[node name="back_tag" type="Label" parent="input_ui/enter_tags/enter_custom_tag"]
+use_parent_material = true
+offset_left = 768.0
+offset_top = 408.0
+offset_right = 960.0
+offset_bottom = 447.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_anym8")
+theme_override_font_sizes/font_size = 30
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_custom_tag" type="TextureButton" parent="input_ui/enter_tags/enter_custom_tag/back_tag"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="ui/mod_name_label/mod_name_button" to="." method="_on_mod_name_button_pressed"]
+[connection signal="pressed" from="ui/description_name_label/decription_button" to="." method="_on_decription_button_pressed"]
+[connection signal="pressed" from="ui/mod_directory_label/mod_directory_button" to="." method="_on_mod_directory_button_pressed"]
+[connection signal="pressed" from="ui/mod_tags_label/mod_tags_button" to="." method="_on_mod_tags_button_pressed"]
+[connection signal="pressed" from="ui/back_label/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ui/mod_icon_label/mod_icon_button" to="." method="_on_mod_icon_button_pressed"]
+[connection signal="pressed" from="ui/preview_and_publish_label/preview_button" to="." method="_on_preview_button_pressed"]
+[connection signal="pressed" from="input_ui/input_name/confirm/name_confirm_button" to="." method="_on_name_confirm_button_pressed"]
+[connection signal="pressed" from="input_ui/input_name/cancel/name_cansel_button" to="." method="_on_name_cansel_button_pressed"]
+[connection signal="pressed" from="input_ui/input_description/confirm/confirm_description_buton" to="." method="_on_confirm_description_buton_pressed"]
+[connection signal="pressed" from="input_ui/input_description/cancel/cancel_description_button" to="." method="_on_cancel_description_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/weapons/weapons_tag_button" to="." method="_on_weapons_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/armor/armor_tag_button" to="." method="_on_armor_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/characters/characters_tag_button" to="." method="_on_characters_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/origins/origins_tag_button" to="." method="_on_origins_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/enemies/enemies_tag_button" to="." method="_on_enemies_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/story/story_tag_button" to="." method="_on_story_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/arena/arena_tag_button" to="." method="_on_arena_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/playground/playground_tag_button" to="." method="_on_playground_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/gameplay/gameplay_tag_button" to="." method="_on_gameplay_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/sound/sound_tag_button" to="." method="_on_sound_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/music/music_tag_button" to="." method="_on_music_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/scripts/scripts_tag_button" to="." method="_on_scripts_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/other/other_tag_button" to="." method="_on_other_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/replacement/replacement_tag_button" to="." method="_on_replacement_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/overhaul/overhaul_tag_button" to="." method="_on_overhaul_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/QOL/qol_tag_button" to="." method="_on_qol_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/balance/balance_tag_button" to="." method="_on_balance_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/silly/silly_tag_button" to="." method="_on_silly_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/vanilla-friendly/vanilla_tag_button" to="." method="_on_vanilla_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/tags/custom-stage/custom_tag_button" to="." method="_on_custom_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/confirm/confirm_tags_button" to="." method="_on_confirm_tags_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/custom_tag/custom_tags_button" to="." method="_on_custom_tags_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/enter_custom_tag/confirm_tag/confirm_custom_tag_button" to="." method="_on_confirm_custom_tag_button_pressed"]
+[connection signal="pressed" from="input_ui/enter_tags/enter_custom_tag/back_tag/back_custom_tag" to="." method="_on_back_custom_tag_pressed"]
