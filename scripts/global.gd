@@ -7,6 +7,8 @@ var steam_running=false
 var current_item_id=0
 var nickname
 
+var first_fade_play=true
+
 # settings
 var animations=false
 var discord_rpc=true
