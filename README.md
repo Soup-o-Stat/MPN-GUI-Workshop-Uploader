@@ -1,6 +1,6 @@
 # MPN GUI Workshop Uploader
 
-[![itch.io](https://img.shields.io/badge/itch.io-Download_MPNGWU-red)](https://soup-o-stat.itch.io/mpn-gui-workshop-uploader)
+[![itch.io](https://img.shields.io/badge/itch.io-Download_Workshop_Uploader-red)](https://soup-o-stat.itch.io/mpn-gui-workshop-uploader)
 
 ## What is it?
 
