@@ -1,5 +1,7 @@
 # MPN GUI Workshop Uploader
 
+[![itch.io](https://img.shields.io/badge/itch.io-Play_Game-red)](https://soup-o-stat.itch.io/mpn-gui-workshop-uploader)
+
 ## What is it?
 
 **MPN GUI Workshop Uploader** is a graphical interface tool for publishing mods to the Steam Workshop for the game MADNESS Project Nexus. This repository contains the project's source code which you're free to use and modify as you wish!
